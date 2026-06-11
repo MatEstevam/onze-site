@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#202020"/>
+      <stop offset="100%" stop-color="#2a2a2a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfff03" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#dfff03" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip">
+      <rect width="400" height="500" rx="12"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="400" height="500" fill="url(#bg)"/>
+    <polygon points="0,0 160,0 0,200" fill="url(#accent)"/>
+    <line x1="0" y1="420" x2="400" y2="420" stroke="#dfff03" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="320" y="280" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="220" fill="#ffffff" fill-opacity="0.04" text-anchor="middle">1</text>
+    <text x="200" y="300" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="200" fill="#dfff03" text-anchor="middle" dominant-baseline="central">A</text>
+    <rect x="0" y="440" width="400" height="60" fill="#181818" fill-opacity="0.7"/>
+    <text x="200" y="478" font-family="'Barlow Condensed', sans-serif" font-weight="600" font-size="28" fill="#f4f4f4" text-anchor="middle" letter-spacing="4">ALISSON</text>
+    <rect x="160" y="438" width="80" height="3" rx="1" fill="#dfff03"/>
+  </g>
+</svg>
