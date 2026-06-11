@@ -3,7 +3,6 @@
 import { Wordmark } from "@/components/Wordmark";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { WaitlistForm } from "@/components/WaitlistForm";
 import { MetricRing } from "@/components/MetricRing";
 import { MetricBadge } from "@/components/MetricBadge";
 import { TextReveal } from "@/components/TextReveal";
@@ -656,7 +655,7 @@ function AthleteProfile({ atleta, onClose }: { atleta: Athlete; onClose: () => v
 
         {/* CTA */}
         <div className="flex gap-3">
-          <a href="#waitlist" onClick={onClose} className="btn-hover flex-1 h-12 flex items-center justify-center bg-accent text-bg font-display font-semibold text-sm rounded-lg">
+          <a href="https://app.11narede.com.br/login" className="btn-hover flex-1 h-12 flex items-center justify-center bg-accent text-bg font-display font-semibold text-sm rounded-lg">
             Ativar este atleta
           </a>
           <button onClick={onClose} className="h-12 px-6 flex items-center justify-center border border-white/[0.08] text-text-muted font-display font-medium text-sm rounded-lg hover:bg-white/[0.04] transition-colors cursor-pointer">
@@ -1009,21 +1008,19 @@ function CTAFinal() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#waitlist"
+              href="https://app.11narede.com.br/login"
               className="btn-hover h-12 sm:h-14 px-8 sm:px-10 flex items-center justify-center bg-accent text-bg font-display font-semibold text-base sm:text-lg rounded-lg"
             >
-              Entrar na waitlist
+              Comece já
             </a>
             <a
-              href="#waitlist"
-              onClick={() => { window.history.replaceState(null, "", "#waitlist?role=marca"); }}
+              href="https://app.11narede.com.br/login"
               className="btn-hover h-12 sm:h-14 px-8 sm:px-10 flex items-center justify-center border border-white/10 text-text font-display font-medium text-base sm:text-lg rounded-lg hover:bg-white/5"
             >
               Quero operar atletas
             </a>
             <a
-              href="#waitlist"
-              onClick={() => { window.history.replaceState(null, "", "#waitlist?role=marca"); }}
+              href="https://app.11narede.com.br/login"
               className="btn-hover h-12 sm:h-14 px-8 sm:px-10 flex items-center justify-center border border-white/10 text-text font-display font-medium text-base sm:text-lg rounded-lg hover:bg-white/5"
             >
               Quero ativar campanhas
@@ -1035,41 +1032,6 @@ function CTAFinal() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   10 · WAITLIST SECTION
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-function WaitlistSection() {
-  const [defaultRole, setDefaultRole] = useState<"marca" | "atleta" | undefined>(undefined);
-
-  useEffect(() => {
-    function readRole() {
-      const hash = window.location.hash;
-      const match = hash.match(/role=(marca|atleta)/);
-      if (match) {
-        setDefaultRole(match[1] as "marca" | "atleta");
-      }
-    }
-    readRole();
-    window.addEventListener("hashchange", readRole);
-    return () => window.removeEventListener("hashchange", readRole);
-  }, []);
-
-  return (
-    <section id="waitlist" className="px-5 md:px-10 lg:px-16 py-24 md:py-36 border-t border-white/[0.06] overflow-hidden">
-      <div className="max-w-3xl mx-auto text-center">
-        <FadeIn>
-          <p className="font-display font-medium text-sm md:text-base tracking-widest text-text-muted uppercase mb-6">Waitlist</p>
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl text-text mb-4">Seja Onze.</h2>
-          <p className="text-base md:text-lg text-text-muted mb-10">Lista de espera aberta. Lançamento previsto para Q3 2025.</p>
-          <div className="flex justify-center">
-            <WaitlistForm defaultRole={defaultRole} />
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════════════════
    11 · FOOTER
@@ -1081,6 +1043,7 @@ function Footer() {
     { title: "Público", links: ["Marcas", "Agências", "Atletas"] },
     { title: "Institucional", links: [
       { label: "Manifesto", href: "#" },
+      { label: "Privacidade", href: "https://11narede.com.br/privacidade" },
       { label: "Contato", href: "mailto:contato@onze.com" },
       { label: "LinkedIn", href: "https://linkedin.com", external: true },
     ]},
@@ -1146,7 +1109,6 @@ export default function Home() {
         <Scores />
         <SocialProof />
         <CTAFinal />
-        <WaitlistSection />
       </main>
       <Footer />
     </div>
