@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  env: {
+    SITE_PASSWORD: process.env.SITE_PASSWORD,
+  },
   experimental: {
     optimizePackageImports: ["framer-motion"],
   },
