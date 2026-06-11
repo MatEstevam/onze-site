@@ -30,6 +30,13 @@ export const PasswordInput = forwardRef<
         {...props}
         ref={ref}
         type={visible ? "text" : "password"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            const form = (e.target as HTMLInputElement).closest("form");
+            if (form) form.requestSubmit();
+          }
+          props.onKeyDown?.(e);
+        }}
       />
       <button
         type="button"
