@@ -121,15 +121,10 @@ function Nav() {
 
 const heroMedia = [
   { type: "image" as const, src: "/athletes/mbappe.jpg" },
-  { type: "video" as const, src: "/videos/9.mp4" },
   { type: "image" as const, src: "/athletes/rodrygo.jpg" },
-  { type: "video" as const, src: "/videos/10.mp4" },
   { type: "image" as const, src: "/athletes/raphinha.jpg" },
-  { type: "video" as const, src: "/videos/11.mp4" },
   { type: "image" as const, src: "/athletes/alisson.jpg" },
-  { type: "video" as const, src: "/videos/12.mp4" },
   { type: "image" as const, src: "/athletes/casemiro.jpg" },
-  { type: "video" as const, src: "/videos/13.mp4" },
   { type: "image" as const, src: "/athletes/endrick.jpg" },
 ];
 
@@ -137,8 +132,7 @@ function Hero() {
   const [mediaIndex, setMediaIndex] = useState(0);
 
   useEffect(() => {
-    const current = heroMedia[mediaIndex];
-    const duration = current.type === "video" ? 6000 : 4000;
+    const duration = 4000;
     const timeout = setTimeout(() => {
       setMediaIndex((prev) => (prev + 1) % heroMedia.length);
     }, duration);
@@ -159,26 +153,14 @@ function Hero() {
               key={media.src}
               className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${isCurrent ? "opacity-100" : "opacity-0"}`}
             >
-              {media.type === "video" ? (
-                <video
-                  src={media.src}
-                  autoPlay={isCurrent}
-                  muted
-                  loop
-                  playsInline
-                  preload={isCurrent ? "auto" : "none"}
-                  className="w-full h-full object-cover hero-panel-zoom"
-                />
-              ) : (
-                <Image
-                  src={media.src}
-                  alt=""
-                  fill
-                  className="object-cover hero-panel-zoom"
-                  priority={i === 0}
-                  sizes="100vw"
-                />
-              )}
+              <Image
+                src={media.src}
+                alt=""
+                fill
+                className="object-cover hero-panel-zoom"
+                priority={i === 0}
+                sizes="100vw"
+              />
             </div>
           );
         })}

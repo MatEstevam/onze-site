@@ -7,7 +7,6 @@ const navLinks = [
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#scores", label: "Scores" },
   { href: "#onze-da-semana", label: "Vitrine" },
-  { href: "#waitlist", label: "Waitlist" },
 ];
 
 function MenuOverlay({ onClose }: { onClose: () => void }) {
