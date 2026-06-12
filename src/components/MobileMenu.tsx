@@ -63,7 +63,7 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
           </a>
         ))}
         <a
-          href="/login"
+          href="https://app.11narede.com.br/login"
           onClick={onClose}
           style={{
             display: "block",
