@@ -2,7 +2,7 @@ export default function PrivacidadePage() {
   return (
     <div className="min-h-screen bg-[var(--color-bg)] px-5 md:px-10 py-16">
       <div className="max-w-3xl mx-auto">
-        <a href="https://11narede.com.br"><img src="/logo-horizontal.svg" alt="Onze" width={120} height={32} className="mb-12" /></a>
+        <div className="flex justify-center mb-12"><a href="https://11narede.com.br"><img src="/logo-horizontal.svg" alt="Onze" width={120} height={32} /></a></div>
 
         <h1 className="font-display font-bold text-3xl text-[var(--color-text)] mb-8">Política de Privacidade</h1>
 
