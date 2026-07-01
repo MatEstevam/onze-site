@@ -38,7 +38,7 @@ const scoreCards = [
   { name: "Trending Score", range: "Variação semanal", description: "Identificação de atletas em crescimento antes do pico de mercado.", value: 34, type: "delta" as const, prefix: "+", suffix: "%" },
 ];
 
-const categoryCards = ["Fintech", "Sportswear", "Cerveja", "Banco", "Betting", "Fast Food"];
+const categoryCards = ["Sportswear", "Suplementos", "Wellness", "Cosméticos", "Automotivo", "Tecnologia"];
 
 /* ═══════════════════════════════════════════════════════════════════════════
    HELPERS
