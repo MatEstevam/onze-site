@@ -99,7 +99,7 @@ function Nav() {
         <div className="hidden lg:flex items-center gap-6">
           <a href="#scores" className="font-display text-lg text-text-muted hover:text-text transition-colors">Produto</a>
           <a href="#scores" className="font-display text-lg text-text-muted hover:text-text transition-colors">Inteligência</a>
-          <a href="#onze-da-semana" className="font-display text-lg text-text-muted hover:text-text transition-colors">O Onze da Semana</a>
+
         </div>
       </div>
       <div className="flex items-center gap-2">
@@ -119,51 +119,39 @@ function Nav() {
    02 · HERO — Dynamic image grid + bold text overlay
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const heroMedia = [
-  { type: "image" as const, src: "/athletes/mbappe.jpg" },
-  { type: "image" as const, src: "/athletes/rodrygo.jpg" },
-  { type: "image" as const, src: "/athletes/raphinha.jpg" },
-  { type: "image" as const, src: "/athletes/alisson.jpg" },
-  { type: "image" as const, src: "/athletes/casemiro.jpg" },
-  { type: "image" as const, src: "/athletes/endrick.jpg" },
-];
+const heroVideos = ["/hero-9.mp4", "/hero-10.mp4", "/hero-11.mp4", "/hero-12.mp4", "/hero-13.mp4"];
 
 function Hero() {
-  const [mediaIndex, setMediaIndex] = useState(0);
+  const [videoIndex, setVideoIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    const duration = 4000;
-    const timeout = setTimeout(() => {
-      setMediaIndex((prev) => (prev + 1) % heroMedia.length);
-    }, duration);
-    return () => clearTimeout(timeout);
-  }, [mediaIndex]);
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === videoIndex) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [videoIndex]);
 
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      {/* Single full-screen media carousel — only render current + next for performance */}
       <div className="absolute inset-0">
-        {heroMedia.map((media, i) => {
-          const isCurrent = i === mediaIndex;
-          const isNext = i === (mediaIndex + 1) % heroMedia.length;
-          if (!isCurrent && !isNext) return null;
-
-          return (
-            <div
-              key={media.src}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${isCurrent ? "opacity-100" : "opacity-0"}`}
-            >
-              <Image
-                src={media.src}
-                alt=""
-                fill
-                className="object-cover hero-panel-zoom"
-                priority={i === 0}
-                sizes="100vw"
-              />
-            </div>
-          );
-        })}
+        {heroVideos.map((src, i) => (
+          <video
+            key={src}
+            ref={(el) => { videoRefs.current[i] = el; }}
+            muted
+            playsInline
+            onEnded={() => setVideoIndex((prev) => (prev + 1) % heroVideos.length)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${i === videoIndex ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+          >
+            <source src={src} type="video/mp4" />
+          </video>
+        ))}
       </div>
 
       {/* Dark overlay for text contrast */}
@@ -1083,7 +1071,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <OnzeDaSemana />
+        {/* <OnzeDaSemana /> */}
         <PortalDemo />
         <Problem />
         <ComoFunciona />
