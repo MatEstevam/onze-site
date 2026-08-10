@@ -6,7 +6,6 @@ import { createPortal } from "react-dom";
 const navLinks = [
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#scores", label: "Scores" },
-  { href: "#onze-da-semana", label: "Vitrine" },
 ];
 
 function MenuOverlay({ onClose }: { onClose: () => void }) {
