@@ -119,7 +119,7 @@ function Nav() {
    02 · HERO — Dynamic image grid + bold text overlay
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const heroVideos = ["/hero-9.mp4", "/hero-10.mp4", "/hero-11.mp4", "/hero-12.mp4", "/hero-13.mp4"];
+const heroVideos = ["/hero-11-new.mp4", "/hero-9.mp4", "/hero-10.mp4", "/hero-11.mp4", "/hero-12.mp4", "/hero-13.mp4"];
 
 function Hero() {
   const [videoIndex, setVideoIndex] = useState(0);
@@ -261,8 +261,8 @@ function DashboardMockup() {
 
 function Problem() {
   return (
-    <section className="px-5 md:px-10 lg:px-16 py-24 md:py-36 border-t border-white/[0.06] overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-5 md:px-10 lg:px-16 py-24 md:py-36 overflow-hidden relative" style={{ background: "radial-gradient(ellipse 120% 100% at 75% 20%, #3a3a3a 0%, #1a1a1a 50%, #0f0f0f 100%)" }}>
+      <div className="max-w-7xl mx-auto relative z-10">
         <FadeIn className="text-center">
           <p className="font-display font-medium text-sm md:text-base tracking-widest text-text-muted uppercase mb-6">O mercado hoje</p>
           <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-[-0.01em] text-text">
@@ -314,35 +314,60 @@ function Problem() {
 
 function ComoFunciona() {
   const steps = [
-    { step: "01", verb: "Descubra", description: "Encontre atletas com dados reais, audiência decomposta e Fit Score proprietário." },
-    { step: "02", verb: "Ative", description: "Proponha ativações, negocie e formalize contratos em um único fluxo." },
-    { step: "03", verb: "Escale", description: "Pagamento protegido, operação centralizada e performance mensurável." },
+    { verb: "Descubra", description: "Encontre atletas com dados reais, audiência decomposta e Fit Score proprietário." },
+    { verb: "Ative", description: "Proponha ativações, negocie e formalize contratos em um único fluxo." },
+    { verb: "Escale", description: "Pagamento protegido, operação centralizada e performance mensurável." },
   ];
 
   return (
-    <section id="como-funciona" className="px-5 md:px-10 lg:px-16 py-24 md:py-36 relative overflow-hidden">
-      <GlowOrb className="w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+    <section id="como-funciona" className="relative overflow-hidden" style={{ background: "radial-gradient(ellipse 120% 100% at 50% 0%, #2a2a2a 0%, #0f0f0f 100%)" }}>
+      <div className="max-w-[90rem] mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] items-stretch">
 
-      <div className="max-w-7xl mx-auto">
-        <FadeIn className="text-center">
-          <p className="font-display font-medium text-sm md:text-base tracking-widest text-text-muted uppercase mb-6">Como funciona</p>
-          <TextReveal
-            text="Três passos. Uma plataforma."
-            className="font-display font-semibold text-3xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-[-0.01em] text-text mb-20"
-          />
-        </FadeIn>
+          {/* Left — accent block + MacBook + title */}
+          <div className="relative min-h-[420px] md:min-h-[560px]">
+            {/* Yellow accent block — bottom portion, flush to left edge */}
+            <div className="absolute bottom-8 md:bottom-12 -left-[9999px] right-[5%] md:right-[10%] h-[50%] bg-accent rounded-tr-3xl rounded-br-3xl">
+              <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundSize: "256px 256px" }} />
+            </div>
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-          {steps.map((s) => (
-            <StaggerItem key={s.step}>
-              <div className="card-hover rounded-xl p-8 md:p-10 border border-white/[0.06] bg-bg-card text-center h-full">
-                <span className="inline-block font-display font-bold text-base text-text-muted mb-4">{s.step}</span>
-                <h3 className="font-display font-semibold text-3xl md:text-4xl text-text">{s.verb}</h3>
-                <p className="mt-4 text-base md:text-lg text-text-muted leading-relaxed">{s.description}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
+            {/* Title centered vertically on accent block */}
+            <div className="absolute bottom-8 md:bottom-12 left-0 right-[5%] md:right-[10%] h-[50%] flex items-center z-10 pl-3 md:pl-6 lg:pl-10">
+              <FadeIn>
+                <h2 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1] tracking-[-0.02em] text-bg">
+                  Três passos.<br />Uma plataforma.
+                </h2>
+              </FadeIn>
+            </div>
+
+            {/* MacBook mockup */}
+            <FadeIn className="absolute top-0 left-[35%] md:left-[40%] -right-[5%] bottom-[10%] z-20 flex items-center justify-center pointer-events-none">
+              <Image
+                src="/macbook-mockup.png"
+                alt="Plataforma Onze no MacBook"
+                width={1000}
+                height={1000}
+                className="w-full max-w-[700px] h-auto object-contain drop-shadow-2xl translate-x-[40px] translate-y-[40px]"
+                style={{ filter: "none" }}
+              />
+            </FadeIn>
+          </div>
+
+          {/* Right — steps list */}
+          <div className="px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:w-[420px] xl:w-[480px] flex flex-col justify-center">
+            <StaggerChildren className="space-y-10 md:space-y-14">
+              {steps.map((s) => (
+                <StaggerItem key={s.verb}>
+                  <div>
+                    <h3 className="font-display font-bold text-3xl md:text-4xl text-text">{s.verb}</h3>
+                    <p className="mt-2 text-lg md:text-xl text-text-muted leading-relaxed">{s.description}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
+          </div>
+
+        </div>
       </div>
     </section>
   );
@@ -720,6 +745,15 @@ function OnzeDaSemana() {
 function PortalDemo() {
   const [activeView, setActiveView] = useState<"marca" | "atleta">("marca");
   const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }
 
   const marcaSteps = [
     {
@@ -888,8 +922,26 @@ function PortalDemo() {
   const steps = activeView === "marca" ? marcaSteps : atletaSteps;
 
   return (
-    <section id="demo" className="px-5 md:px-10 lg:px-16 xl:px-24 py-24 md:py-36 border-t border-white/[0.06] relative overflow-hidden">
-      <GlowOrb className="w-[500px] h-[400px] top-0 left-1/4" color="accent" />
+    <section
+      id="demo"
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className="px-5 md:px-10 lg:px-16 xl:px-24 py-24 md:py-36 relative overflow-hidden bg-bg-deep"
+    >
+      {/* Interactive mouse-following glow */}
+      <div
+        className="pointer-events-none absolute rounded-full blur-[180px] transition-opacity duration-500"
+        style={{
+          width: 600,
+          height: 600,
+          left: mousePos.x - 300,
+          top: mousePos.y - 300,
+          background: "radial-gradient(circle, rgba(223,255,3,0.3) 0%, rgba(223,255,3,0.08) 50%, transparent 70%)",
+          opacity: isHovering ? 1 : 0,
+        }}
+      />
 
       <div className="max-w-[90rem] mx-auto relative z-10">
         <FadeIn className="text-center">
