@@ -58,7 +58,7 @@ export function Problem() {
             <p>A marca paga caro pelo nome óbvio.</p>
             <p>O atleta perde oportunidade porque ninguém encontrou.</p>
             <p>A agência opera artesanalmente.</p>
-            <p>A negociação sem dado. Pagamento sem garantia. Contrato descentralizado.</p>
+            <p>A negociação sem dado. O pagamento sem garantia. O contrato descentralizado.</p>
           </div>
         </FadeIn>
 
