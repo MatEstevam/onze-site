@@ -266,14 +266,14 @@ function Problem() {
         <FadeIn className="text-center">
           <p className="font-display font-medium text-sm md:text-base tracking-widest text-text-muted uppercase mb-6">O mercado hoje</p>
           <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-[-0.01em] text-text">
-            O mercado ainda roda no{" "}
-            <span className="text-accent">WhatsApp.</span>
+            O mercado que movimenta milhões ainda conecta oportunidades de forma {" "}
+            <span className="text-accent">ultrapassada.</span>
           </h2>
           <div className="mt-8 text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl mx-auto space-y-1">
-            <p>Marca paga caro pelo nome óbvio.</p>
-            <p>Atleta perde oportunidade porque ninguém encontrou.</p>
-            <p>Agência opera artesanalmente.</p>
-            <p>Negociação sem dado. Pagamento sem garantia. Contrato descentralizado.</p>
+            <p>A marca paga caro pelo nome óbvio.</p>
+            <p>O atleta perde oportunidade porque ninguém encontrou.</p>
+            <p>A agência opera artesanalmente.</p>
+            <p>A negociação sem dado. O pagamento sem garantia. O contrato descentralizado.</p>
           </div>
         </FadeIn>
 
