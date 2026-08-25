@@ -298,7 +298,7 @@ function Problem() {
 
         {/* Dashboard mockup */}
         <FadeIn delay={0.3}>
-          <p className="text-center font-display font-semibold text-2xl text-text mb-6">
+          <p className="text-center font-display font-semibold text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
             A <span className="text-accent">Onze</span> organiza o jogo.
           </p>
           <DashboardMockup />
@@ -334,7 +334,7 @@ function ComoFunciona() {
             {/* Title centered vertically on accent block */}
             <div className="absolute bottom-8 md:bottom-12 left-0 right-[5%] md:right-[10%] h-[50%] flex items-center z-10 pl-3 md:pl-6 lg:pl-10">
               <FadeIn>
-                <h2 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1] tracking-[-0.02em] text-bg">
+                <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-[1] tracking-[-0.02em] text-bg">
                   Três passos.<br />Uma plataforma.
                 </h2>
               </FadeIn>
@@ -505,7 +505,7 @@ function SocialProof() {
         <FadeIn className="text-center">
           <p className="font-display font-medium text-sm md:text-base tracking-widest text-text-muted uppercase mb-6">Para quem</p>
           <h2 className="font-display font-semibold text-3xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-[-0.01em] text-text mb-16">
-            Feito para marcas que disputam atenção todos os dias.
+            Feito para marcas que disputam atenção todos&nbsp;os&nbsp;dias.
           </h2>
         </FadeIn>
 
